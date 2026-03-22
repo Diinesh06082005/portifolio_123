@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg-main: 244 247 251;
+    --bg-secondary: 255 255 255;
+    --text-primary: 15 23 42;
+    --text-muted: 71 85 105;
+    --card-rgb: 255 255 255;
+    --card-border: 148 163 184;
+    --shadow-rgb: 15 23 42;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    --bg-main: 2 6 23;
+    --bg-secondary: 15 23 42;
+    --text-primary: 241 245 249;
+    --text-muted: 148 163 184;
+    --card-rgb: 15 23 42;
+    --card-border: 148 163 184;
+    --shadow-rgb: 2 6 23;
+  }
+
+  * {
+    @apply border-white/10;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body antialiased;
+    background: transparent;
+    color: rgb(var(--text-primary));
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.28);
+    color: rgb(241, 245, 249);
+  }
+
+  img {
+    display: block;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply rounded-[2rem] border shadow-glass backdrop-blur-2xl;
+    background:
+      linear-gradient(135deg, rgba(var(--card-rgb), 0.58), rgba(var(--card-rgb), 0.16)),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    border-color: rgba(var(--card-border), 0.18);
+    box-shadow:
+      0 18px 44px rgba(var(--shadow-rgb), 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .section-shell {
+    @apply relative py-16 sm:py-20 lg:py-24;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition duration-300;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 1), rgba(168, 85, 247, 0.95));
+    box-shadow: 0 18px 40px rgba(14, 165, 233, 0.25);
+  }
+
+  .button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 48px rgba(14, 165, 233, 0.34);
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-medium text-primary transition duration-300;
+    background: rgba(var(--card-rgb), 0.34);
+    border-color: rgba(var(--card-border), 0.18);
+  }
+
+  .button-secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(var(--card-rgb), 0.48);
+  }
+
+  .icon-button {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-2xl border text-primary transition;
+    background: rgba(var(--card-rgb), 0.22);
+    border-color: rgba(var(--card-border), 0.18);
+  }
+
+  .icon-button:hover {
+    background: rgba(var(--card-rgb), 0.4);
+    transform: translateY(-1px);
+  }
+
+  .nav-pill {
+    @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-muted transition;
+  }
+
+  .nav-pill:hover {
+    color: rgb(var(--text-primary));
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-pill-active {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgb(var(--text-primary));
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-medium uppercase tracking-[0.26em];
+    background: rgba(var(--card-rgb), 0.24);
+    border-color: rgba(var(--card-border), 0.2);
+    color: rgb(var(--text-muted));
+  }
+
+  .skill-chip {
+    @apply rounded-full border px-3 py-1.5 text-xs font-medium text-primary;
+    background: rgba(var(--card-rgb), 0.28);
+    border-color: rgba(var(--card-border), 0.16);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #67e8f9 0%, #60a5fa 38%, #f472b6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 90px 90px;
+    mask-image: radial-gradient(circle at center, black 32%, transparent 82%);
+  }
+}
+
+@layer utilities {
+  .text-primary {
+    color: rgb(var(--text-primary));
+  }
+
+  .text-muted {
+    color: rgb(var(--text-muted));
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(var(--bg-secondary), 0.55);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.7), rgba(244, 114, 182, 0.7));
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
