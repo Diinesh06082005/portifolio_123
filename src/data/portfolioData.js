@@ -13,7 +13,7 @@ import {
   Sparkles,
   Trophy,
 } from "lucide-react";
-import myProfilePhoto from "./WhatsApp Image 2026-03-22 at 11.21.59 PM.jpeg";
+import myProfilePhoto from "./IMG-20231030-WA0013.jpg";
 import certGoogleData from "./google advance data anaylytics.pdf";
 import certAwsCloud from "./aws cloud.pdf";
 import certGoogleIT from "./google it automation using pythom.pdf";
